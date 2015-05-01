@@ -55,10 +55,6 @@ get('/dealership/:id') do
   erb(:dealership)
 end
 
-post('/dealership/:id') do
-  @dealership = Dealership.find(params.fetch('id'))
-  car=Car.new(params.fetch("make"), params.fetch("model"), params.fetch("year").to_i)
-  @dealership.add_car(car)
-  @dealership_cars = @dealership.cars()
-  erb(:dealership)
+get('/dealership/:id/cars/new') do
+  erb(:car_form)
 end

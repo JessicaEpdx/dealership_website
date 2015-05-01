@@ -10,22 +10,6 @@
     <% end %>
 </ul>
 
-<h2>Add your car</h2>
-
-<form action="/dealership" method="post">
-  <label for="make">Add car Make</label>
-    <input id="make" name="make" type="text">
-
-  <label for="model">Add car Model</label>
-    <input id="model" name="model" type="text">
-
-  <label for="year">Add car Year</label>
-    <input id="year" name="year" type="number">
-
-  <button type="submit">Add that car!</button>
-</form>
-
-
-
+<a href="/dealership/<%= @dealership.id%>/cars/new">Add a new vehicle</a>
 
 <a href="/">Home</a>
