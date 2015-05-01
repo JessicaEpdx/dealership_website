@@ -1,5 +1,5 @@
 class Dealership
-@@dealerships = { }
+@@dealerships = [ ]
 
   define_method(:initialize) do |dealership_name|
     @dealership_name = dealership_name
@@ -8,7 +8,7 @@ class Dealership
   end
 
   define_singleton_method(:clear) do
-    @@dealerships = {}
+    @@dealerships = []
   end
 
   define_singleton_method(:all) do
@@ -20,7 +20,7 @@ class Dealership
   end
 
   define_method(:save) do
-    @@dealerships.store(self, @cars)
+    @@dealerships.push(self)
   end
 
   define_method(:id) do

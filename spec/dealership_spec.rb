@@ -25,15 +25,22 @@ describe(Dealership) do
       expect(dealership2.id()).to(eq(2))
     end
   end
-#
-#   describe('.all') do
-#     it("shows all dealerships") do
-#       dealership1=Dealership.new("Bobs Place")
-#       dealership1.save()
-#       dealership2=Dealership.new("Jess Joint")
-#       dealership2.save()
-#       all_dealerships = Dealership.all()
-#       expect(all_dealerships.get_id("Bobs Place")).to(eq(1))
-#     end
-#   end
+
+  describe('#save') do
+    it("saves dealership") do
+      dealership1=Dealership.new("Bobs Place")
+      dealership1.save()
+      expect(Dealership.all()).to(eq([dealership1]))
+    end
+  end
+
+  describe('.all') do
+    it("shows all dealerships") do
+      dealership1=Dealership.new("Bobs Place")
+      dealership1.save()
+      dealership2=Dealership.new("Jess Joint")
+      dealership2.save()
+      expect(Dealership.all()).to(eq([dealership1, dealership2]))
+    end
+  end
 end
