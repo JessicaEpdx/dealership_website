@@ -1,5 +1,5 @@
 class Car
-@@cars = []
+@@cars = [ ]
 
   define_method(:initialize) do |make, model, year|
     @make = make

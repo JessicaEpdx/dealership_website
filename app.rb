@@ -53,7 +53,6 @@ end
 
 get('/dealership/:id') do
   @dealership = Dealership.find(params.fetch('id'))
-  @dealership_cars = @dealership.cars()
   erb(:dealership)
 end
 
@@ -65,8 +64,10 @@ end
 post('/cars') do
   @car = Car.new(params.fetch("make"), params.fetch("model"), params.fetch("year").to_i)
   @car.save()
-  @all_cars = Car.all()
   @dealership = Dealership.find(params.fetch('dealership_id').to_i())
+  @dealership.add_car(@car)
+binding.pry
+  @all_cars = @dealership.all()
   erb(:success)
 end
 

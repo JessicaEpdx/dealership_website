@@ -1,10 +1,16 @@
 <h1>Dealership Name: <%= @dealership.dealership_name()%></h1>
 
-<h1>Dealership ID: <%= @dealership.id()%></h1>
+<h1>Dealership ID: <%= @dealership.get_id()%></h1>
 
 <h1>Dealership Cars: </h1>
 
+<ul>
+<% @dealership.cars().each() do |car|%>
+<%=    car.get_id() %>
+<% id %>
+<%end %>
 
-<a href="/dealership/<%= @dealership.id%>/cars/new">Add a new vehicle</a>
+
+<a href="/dealership/<%= @dealership.get_id%>/cars/new">Add a new vehicle</a>
 </br>
 <a href="/">Home</a>
