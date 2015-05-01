@@ -8,7 +8,7 @@ class Dealership
   end
 
   define_singleton_method(:clear) do
-    @@dealerships = []
+    @@dealerships = [ ]
   end
 
   define_singleton_method(:all) do
@@ -26,6 +26,16 @@ class Dealership
   define_method(:id) do
     @id
   end
+
+  define_singleton_method(:find) do |id|
+    dealer = [ ]
+    @@dealerships.each() do |dealership|
+      if dealership.id == id
+        dealer.push(dealership)
+      end
+    end
+    dealer
+  end      
 
 
 

@@ -43,4 +43,22 @@ describe(Dealership) do
       expect(Dealership.all()).to(eq([dealership1, dealership2]))
     end
   end
+
+  describe('.clear') do
+    it("is empty at first") do
+      expect(Dealership.clear()).to(eq([]))
+    end
+  end
+
+  describe('.find') do
+    it("finds a dealership by id number") do
+      dealership1=Dealership.new("Bobs Place")
+      dealership1.save()
+      dealership2=Dealership.new("Jess Joint")
+      dealership2.save()
+      expect(Dealership.find(1)).to(eq([dealership1]))
+    end
+  end
+
+
 end
