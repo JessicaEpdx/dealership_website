@@ -1,0 +1,9 @@
+<h2>Available cars:</h2>
+
+<ul>
+  <%  @all_cars.each() do |car|  %>
+    <li><a href="/cars/<%= car.id() %>"><%= [car.make(), car.model(), car.year()].join(", ")%></a></li>
+    <% end %>
+</ul>
+
+<a href="/">Home</a>
