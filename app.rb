@@ -27,4 +27,19 @@ end
 get('/cars/:id') do
   @car = Car.find(params.fetch('id'))
   erb(:car)
-  end
+end
+
+get('/dealership/new') do
+  erb(:dealership_form)
+end
+
+post('/dealerships') do
+  dealer = Dealer.new(params.fetch('dealership_name'))
+  dealer.save()
+  @dealers = Dealership.all()
+  erb(:dealerships)
+end
+
+get('/dealerships') do
+  erb(:dealerships)
+end
