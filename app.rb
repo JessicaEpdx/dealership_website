@@ -40,8 +40,8 @@ get('/dealership/new') do
 end
 
 post('/dealerships') do
-  dealer = Dealership.new(params.fetch('dealership_name'))
-  dealer.save()
+  @dealership = Dealership.new(params.fetch('dealership_name'))
+  @dealership.save()
   @dealerships = Dealership.all()
   erb(:dealerships)
 end
@@ -52,7 +52,7 @@ get('/dealerships') do
 end
 
 get('/dealership/:id') do
-  @dealership = Dealership.find(params.fetch('id'))
+  @dealership = Dealership.find(params.fetch('id').to_i())
   erb(:dealership)
 end
 
@@ -66,8 +66,7 @@ post('/cars') do
   @car.save()
   @dealership = Dealership.find(params.fetch('dealership_id').to_i())
   @dealership.add_car(@car)
-binding.pry
-  @all_cars = @dealership.all()
+  @all_cars = @dealership.cars()
   erb(:success)
 end
 

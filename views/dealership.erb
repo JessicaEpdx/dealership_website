@@ -5,10 +5,10 @@
 <h1>Dealership Cars: </h1>
 
 <ul>
-<% @dealership.cars().each() do |car|%>
-<%=    car.get_id() %>
-<% id %>
-<%end %>
+  <% @dealership.cars().each() do |car| %>
+    <li><a href="/car/<%= car.get_id() %>"><%= car.make() %> <%= car.model() %> <%= car.year() %></a></li>
+  <% end %>
+</ul>
 
 
 <a href="/dealership/<%= @dealership.get_id%>/cars/new">Add a new vehicle</a>
