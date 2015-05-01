@@ -27,7 +27,7 @@ describe(Car) do
     end
   end
 
-  describe("#id") do
+  describe("#get_id") do
     it("returns the id of the vehicle") do
       car=Car.new("Toyota", "Prius", 2004)
       car.save()
@@ -35,7 +35,7 @@ describe(Car) do
       car.save()
       car3=Car.new("Hyundai", "Elantra", 2014)
       car.save()
-      expect(car2.id()).to(eq(2))
+      expect(car2.get_id()).to(eq(2))
     end
   end
 
@@ -68,7 +68,7 @@ describe(Car) do
       car2.save()
       car3=Car.new("BLahBlah", "Wheelsblah", 2008)
       car3.save()
-      expect(Car.find(car2.id())).to(eq(car2))
+      expect(Car.find(car2.get_id())).to(eq(car2))
     end
   end
 

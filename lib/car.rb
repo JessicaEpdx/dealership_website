@@ -19,7 +19,7 @@ class Car
   define_singleton_method(:find) do |id|
     found_car = nil
     @@cars.each() do |car|
-      if car.id() == id.to_i
+      if car.get_id() == id.to_i
         found_car = car
       end
     end
@@ -38,7 +38,7 @@ class Car
     @year
   end
 
-  define_method(:id) do
+  define_method(:get_id) do
     @id
   end
 

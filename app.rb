@@ -12,17 +12,19 @@ get('/car_front') do
   erb(:car_front)
 end
 
-get('/cars') do
-  @all_cars = Car.all()
-  erb(:cars)
-end
+# get('/cars') do
+#   @all_cars = Car.all()
+#   erb(:cars)
+# end
 
-post('/cars') do
-  car=Car.new(params.fetch("make"), params.fetch("model"), params.fetch("year").to_i)
-  car.save()
-  @all_cars = Car.all()
-  erb(:success)
-end
+# post('/cars') do
+#   car=Car.new(params.fetch("make"), params.fetch("model"), params.fetch("year").to_i)
+#   car.save()
+#   @all_cars = Car.all()
+#   @dealership = Dealership.find(params.fetch('dealership_id').to_i())
+#   @dealership.add_car(@vehicle)
+#   erb(:success)
+# end
 
 get('/cars/new') do
   erb(:car_form)
@@ -56,5 +58,19 @@ get('/dealership/:id') do
 end
 
 get('/dealership/:id/cars/new') do
-  erb(:car_form)
+  @dealership = Dealership.find(params.fetch('id').to_i())
+  erb(:dealership_car_form)
+end
+
+post('/cars') do
+  @car = Car.new(params.fetch("make"), params.fetch("model"), params.fetch("year").to_i)
+  @car.save()
+  @all_cars = Car.all()
+  @dealership = Dealership.find(params.fetch('dealership_id').to_i())
+  erb(:success)
+end
+
+get('/cars') do
+  @all_cars = Car.all()
+  erb(:cars)
 end

@@ -27,14 +27,14 @@ class Dealership
     @@dealerships.push(self)
   end
 
-  define_method(:id) do
+  define_method(:get_id) do
     @id
   end
 
   define_singleton_method(:find) do |id|
     dealer = nil
     @@dealerships.each() do |dealership|
-      if dealership.id == id.to_i
+      if dealership.get_id == id.to_i
         dealer = dealership
       end
     end
