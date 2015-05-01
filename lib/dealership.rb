@@ -34,7 +34,7 @@ class Dealership
   define_singleton_method(:find) do |id|
     dealer = nil
     @@dealerships.each() do |dealership|
-      if dealership.id == id
+      if dealership.id == id.to_i
         dealer = dealership
       end
     end
