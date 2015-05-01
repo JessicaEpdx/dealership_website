@@ -1,10 +1,9 @@
 class Dealership
-
 @@dealerships = { }
 
   define_method(:initialize) do |dealership_name|
     @dealership_name = dealership_name
-    @cars = []
+    @cars = [ ]
     @id = @@dealerships.length() + 1
   end
 
@@ -24,19 +23,10 @@ class Dealership
     @@dealerships.store(self, @cars)
   end
 
-  define_method(:add_car) do |car|
-    @@dealerships.each() do |dealership|
-      if self == dealership.dealership_name()
-        @cars.push(car)
-      end
-    end
+  define_method(:id) do
+    @id
   end
 
-  define_method(:get_id) do |name|
-    @@dealerships.each() do |dealership|
-    if dealership == name
-      @id
-    end
-  end
-end
+
+
 end
